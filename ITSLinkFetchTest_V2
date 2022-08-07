@@ -3,7 +3,6 @@ name: Kevin Wong
 date: 8/7/2022
 file: getITSnum
 desc: Uses Optical Character Recognition(OCR) to get the ITS-[number] from an Asset Tag and creates a link to ServiceNow to asset page.
-  Fetches images from a Google Drive folder.
 */
 
 function listFilesInFolder(folderName) {
@@ -26,15 +25,15 @@ function listFilesInFolder(folderName) {
     ]
     sheet.appendRow(data);
 
-    /////////////////////////////// code to use OCR
+    //Creates a Google doc with image file and pulls the OCR text into Google Sheets
     var imageName = image.getName();
     var docName = imageName.split("\.")[0];
     var file = {
         title: docName,
         mimeType: "image/jpeg"
     }
-    // Drive.Files.insert(file, image, { ocr: true });
-    //Store newly-created Google Doc in project folder
+  
+    //Store new Google Doc in project folder
     var newFile = DriveApp.getFilesByName(docName).next();
     folder.addFile(newFile);
     var doc = DocumentApp.openById(newFile.getId());
