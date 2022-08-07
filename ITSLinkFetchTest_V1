@@ -3,6 +3,7 @@ name: Kevin Wong
 date: 8/7/2022
 file: getITSnum
 desc: Uses Optical Character Recognition(OCR) to get the ITS-[number] from an Asset Tag and creates a link to ServiceNow to asset page.
+  Requires image link in a column from a image hosting site like imgur.
 */
 
 
