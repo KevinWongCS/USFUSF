@@ -5,6 +5,7 @@ file: getITSnum
 desc: Uses Optical Character Recognition(OCR) to get the ITS-[number] from an Asset Tag and creates a link to ServiceNow to asset page.
   credit: https://gist.github.com/kltng/c25422538e15e155bccef0e289ea3faa
   original fork: https://gist.github.com/rob0tca/b7fd4488d84a49e5ca87536048629406 
+  other: https://www.labnol.org/code/20010-convert-pdf-to-text-ocr
 */
 
 function listFilesInFolder() {
