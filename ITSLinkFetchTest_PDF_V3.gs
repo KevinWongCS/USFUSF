@@ -30,14 +30,15 @@ function listFilesInFolder() {
     ]
     sheet.appendRow(data);
 
-  // Use OCR to convert PDF to a temporary Google Document
+  //Create file
   var docName = pdf.getName().replace(/\.pdf$/, '');
   var file = {
     title: docName,
     mimeType: pdf.getMimeType() || 'application/pdf'
   }
   var image = pdf.getBlob()
-
+  
+  //Insert image into file created above and use OCR to convert image to text
   Drive.Files.insert(file, image, { ocr: true }); //have to do it this way, can't create a file directly into the folder...
     var newFile = DriveApp.getFilesByName(docName).next();
     var doc = DocumentApp.openById(newFile.getId());
