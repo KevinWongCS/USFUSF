@@ -6,6 +6,8 @@ desc: Uses Optical Character Recognition(OCR) to get the ITS-[number] from an As
   credit: https://gist.github.com/kltng/c25422538e15e155bccef0e289ea3faa
   original fork: https://gist.github.com/rob0tca/b7fd4488d84a49e5ca87536048629406 
   other: https://www.labnol.org/code/20010-convert-pdf-to-text-ocr
+
+  Service Now link: = arrayformula(hyperlink( "https://usf.service-now.com/nav_to.do?uri=%2F$sn_global_search_results.do%3Fsysparm_search%3D" & E2, E2))
 */
 
 function listFilesInFolder() {
