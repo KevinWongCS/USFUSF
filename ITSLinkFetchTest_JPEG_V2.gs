@@ -30,7 +30,7 @@ function listFilesInFolder() {
     ]
     sheet.appendRow(data);
 
-    //Creates a Google doc with image file and pulls the OCR text into Google Sheets
+    //Creates new Google doc
     var imageName = image.getName();
     var docName = imageName.split("\.")[0];
     var file = {
@@ -39,7 +39,7 @@ function listFilesInFolder() {
     }
     
 
-    //Store new Google Doc in project folder
+    //Insert image into Google Doc for OCR to text
     Drive.Files.insert(file, image, { ocr: true }); //have to do it this way, can't create a file directly into the folder...
     var newFile = DriveApp.getFilesByName(docName).next();
     var doc = DocumentApp.openById(newFile.getId());
@@ -49,7 +49,7 @@ function listFilesInFolder() {
     sheet.getRange(counter, 5).setValue(body)
     counter++;  //increment the counter
 
-    //delete doc from drive
+    //delete doc from folder and then drive
     Drive.Files.remove(newFile.getId());
-  }
+  } //main loop end
 }
