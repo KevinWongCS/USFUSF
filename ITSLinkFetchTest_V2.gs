@@ -42,7 +42,6 @@ function listFilesInFolder() {
     //Store new Google Doc in project folder
     Drive.Files.insert(file, image, { ocr: true }); //have to do it this way, can't create a file directly into the folder...
     var newFile = DriveApp.getFilesByName(docName).next();
-    folder.addFile(newFile);
     var doc = DocumentApp.openById(newFile.getId());
     var body = doc.getBody().getText().slice(doc.getBody().getText().lastIndexOf("\n"));
 
@@ -50,8 +49,7 @@ function listFilesInFolder() {
     sheet.getRange(counter, 5).setValue(body)
     counter++;  //increment the counter
 
-    //delete doc from folder and then drive
-    folder.removeFile(newFile);
+    //delete doc from drive
     Drive.Files.remove(newFile.getId());
   }
 }
