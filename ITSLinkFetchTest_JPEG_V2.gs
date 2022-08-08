@@ -5,6 +5,8 @@ file: getITSnum
 desc: Uses Optical Character Recognition(OCR) to get the ITS-[number] from an Asset Tag and creates a link to ServiceNow to asset page.
   credit: https://gist.github.com/kltng/c25422538e15e155bccef0e289ea3faa
   original fork: https://gist.github.com/rob0tca/b7fd4488d84a49e5ca87536048629406 
+
+Service Now link: = arrayformula(hyperlink( "https://usf.service-now.com/nav_to.do?uri=%2F$sn_global_search_results.do%3Fsysparm_search%3D" & E2, E2))
 */
 
 function listFilesInFolder() {
@@ -48,6 +50,8 @@ function listFilesInFolder() {
     //counter appends the new data into the next row
     sheet.getRange(counter, 5).setValue(body)
     counter++;  //increment the counter
+
+    
 
     //delete doc from folder and then drive
     Drive.Files.remove(newFile.getId());
