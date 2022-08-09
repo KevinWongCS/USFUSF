@@ -49,9 +49,13 @@ function listFilesInFolder() {
 
     //counter appends the new data into the next row
     sheet.getRange(counter, 5).setValue(body)
-    counter++;  //increment the counter
+    //Service Now link
+    sheet.getRange(counter, 6).setValue("= hyperlink( \"https://usf.service-now.com/nav_to.do?uri=%2F$sn_global_search_results.do%3Fsysparm_search%3D\" & ".concat("E", counter, ",", "E", counter, " )"));
+    
+    //increment the counter
+    counter++;  
 
     //delete doc from drive
     Drive.Files.remove(newFile.getId());
-  }
+  } //main loop end
 }
