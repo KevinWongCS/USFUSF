@@ -1,6 +1,6 @@
 /*  
 name: Kevin Wong
-date: 8/19/2022
+date: 9/06/2022
 file: DateStandardizationFormatTest.gs
 desc: Gettings ITS-[number]'s from Strings.
 */
@@ -11,15 +11,15 @@ function DateStandardizationFormatTest() {
   const TicketITSArray = [];
 
   //all the data in column A that we want to modify
-  var dataRange = sheet.getRange("A2:A1343").getValues(); //2:1343
+  var dataRange = sheet.getRange("A2:A1067").getValues(); //2:1343
   //all the data in column B that we want to modify
-  var dataRange = sheet.getRange("B2:B1343").getValues();
+  var dataRange = sheet.getRange("B2:B1067").getValues();
   //console.log(dataRange2.length)
   //all the dates in column D that we want
-  var dataRange = sheet.getRange("C2:C1343").getValues();
+  var dataRange = sheet.getRange("C2:B1067").getValues();
 
   //mainloop
-  for (let i = 2; i <= dataRange.length; i++){ //edit and change where the data first begins
+  for (let i = 1; i <= dataRange.length; i++){ //edit and change where the data first begins
     
     //counter
     // console.log("Counter: " + i);
@@ -29,7 +29,7 @@ function DateStandardizationFormatTest() {
     // console.log("cellData: " + cellData);
 
     //get Date
-    var ticketDate = sheet.getRange(i, 4).getValue().toString().substring(4, 16);
+    var ticketDate = sheet.getRange(i, 3).getValue().toString().substring(4, 16);
     // console.log("cellData: " + ticketDate);
 
     //get Short Description
